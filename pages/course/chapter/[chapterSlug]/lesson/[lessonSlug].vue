@@ -40,4 +40,12 @@
       (lesson) => lesson.slug === route.params.lessonSlug
     );
   });
+
+  const pageTitle = computed(() => {
+    return `${lesson.value.title} - ${course.title}`;
+  });
+
+  useHead({
+    title: pageTitle,
+  });
 </script>
