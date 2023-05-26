@@ -22,14 +22,16 @@
     </div>
     <VideoPlayer v-if="lesson.videoId" :videoId="lesson.videoId" />
     <p>{{ lesson.text }}</p>
-    <LessonCompleteButton
-      :model-value="isLessonComplete"
-      @update:model-value="toggleComplete"
-    />
+      <LessonCompleteButton
+        :model-value="isLessonComplete"
+        @update:model-value="toggleComplete"
+      />
   </div>
 </template>
 
 <script setup>
+  import { useStorage } from '@vueuse/core';
+
   const course = useCourse();
   const route = useRoute();
 
@@ -53,9 +55,7 @@
     title: pageTitle,
   });
 
-  const progress = useState('progress', () => {
-    return [];
-  });
+  const progress = useStorage('progress', []);
   const isLessonComplete = computed(() => {
     if (!progress.value[chapter.value.number - 1]) {
       return false;
