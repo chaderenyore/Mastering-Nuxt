@@ -41,11 +41,25 @@
     );
   });
 
+ if(!chapter.value) {
+   throw createError({
+     statusCode: 404,
+     message: "Chapter Not found"
+   })
+ }
+
   const lesson = computed(() => {
     return chapter.value.lessons.find(
       (lesson) => lesson.slug === route.params.lessonSlug
     );
   });
+
+  if(!lesson.value) {
+    throw createError({
+      statusCode: 404,
+      message: "Lesson Not found"
+    })
+  }
 
   const pageTitle = computed(() => {
     return `${lesson.value.title} - ${course.title}`;
