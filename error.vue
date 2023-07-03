@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout>
    <div class="prose">
-    <div v-if="props.error.statusCode === 404">
+    <div>
        <h1>Aw, Snap</h1>
        <p>It looks like something broke</p>
       <p>
