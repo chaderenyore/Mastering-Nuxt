@@ -1,11 +1,14 @@
 <template>
-    <div class="mb-12 prose">
-      <h1>
+  <div>
+    <div
+        class="mb-4 flex justify-between items-center w-full"
+    >
+      <h1 class="text-3xl">
         <span class="font-medium">
-          Course:
-          <span class="font-bold">{{title}}</span>
+          <span class="font-bold">{{ title }}</span>
         </span>
       </h1>
+      <UserCard />
     </div>
 
     <div class="flex flex-row justify-center flex-grow">
@@ -52,6 +55,7 @@
         </NuxtErrorBoundary>
       </div>
     </div>
+  </div>
 </template>
 
 <script setup>
